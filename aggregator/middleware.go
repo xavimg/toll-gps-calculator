@@ -23,7 +23,7 @@ func (m *LogMiddleware) AggregateDistance(dist types.Distance) (err error) {
 			"took": time.Since(start),
 			"err":  err,
 			"dist": dist,
-		}).Info("calculate distance")
+		}).Info("AggregateDistance")
 	}(time.Now())
 	return m.next.AggregateDistance(dist)
 }

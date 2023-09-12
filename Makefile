@@ -2,13 +2,13 @@ obu:
 	@go build -o bin/obu obu/main.go
 	@./bin/obu
 
-receiver:
-	@go build -o bin/receiver ./data_receiver
-	@./bin/receiver
+consumer:
+	@go build -o bin/consumer ./distance_producer
+	@./bin/consumer
 
-calculator:
-	@go build -o bin/calculator ./distance_calculator
-	@./bin/calculator
+producer:
+	@go build -o bin/producer ./distance_consumer
+	@./bin/producer
 
 aggregator:
 	@go build -o bin/aggregator ./aggregator

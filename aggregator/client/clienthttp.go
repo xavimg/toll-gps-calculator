@@ -2,6 +2,7 @@ package client
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -12,14 +13,14 @@ type ClientHTTP struct {
 	Endpoint string
 }
 
-func NewClient(endpoint string) *ClientHTTP {
+func NewHTTPClient(endpoint string) *ClientHTTP {
 	return &ClientHTTP{
 		Endpoint: endpoint,
 	}
 }
 
-func (c *ClientHTTP) AggregateInvoice(dist types.Distance) error {
-	b, err := json.Marshal(dist)
+func (c *ClientHTTP) Aggregate(ctx context.Context, r *types.AggregateRequest) error {
+	b, err := json.Marshal(r)
 	if err != nil {
 		return err
 	}

@@ -8,6 +8,10 @@ service Aggregator{
 
 message None {}
 
+message GetInvoiceRequest {
+    int32 obuID = 1;   
+}
+
 message AggregateRequest {
     int32 obuID = 1;
     double value = 2;
